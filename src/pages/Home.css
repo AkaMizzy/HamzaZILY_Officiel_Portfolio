@@ -1,6 +1,6 @@
 /* Hero Section */
 .hero {
-  padding: 10rem 0 6rem;
+  padding: 10rem 0 3rem; /* Reduced bottom padding from 6rem to 3rem */
   background-color: var(--bg-primary);
   position: relative;
   overflow: hidden;
@@ -367,5 +367,19 @@
 
   .cta-title {
     font-size: 1.8rem;
+  }
+}
+
+.typing-container {
+  min-height: 2.5rem;
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .typing-container {
+    min-width: 300px;
+    justify-content: center;
   }
 }

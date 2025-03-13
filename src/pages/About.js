@@ -4,29 +4,37 @@ import './About.css';
 
 const About = () => {
   return (
-    <div className="about-page">
+    <div >
       {/* About Hero Section */}
       <section className="section about-hero">
         <div className="container">
           <h1 className="section-title">About Me</h1>
           <div className="about-hero-content">
             <div className="about-hero-image">
-              <div className="placeholder-profile"></div>
+              <div className="placeholder-profile">
+                <img 
+                  src="/DSC_8406.png" 
+                  alt="Profile"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }}
+                />
+              </div>
             </div>
             <div className="about-hero-text">
               <h2>Hamza</h2>
-              <h3>Frontend Developer</h3>
+              <h3>Développeur Full-Stack</h3>
               <p>
-                I'm a passionate frontend developer dedicated to creating exceptional 
-                digital experiences. With a strong foundation in modern web technologies 
-                and a keen eye for design, I craft interfaces that are not only visually 
-                appealing but also highly functional and user-friendly.
+              Passionné par le développement web et spécialisé en génie logiciel, 
+              je combine expertise en frontend, 
+              backend et conception de logiciels pour créer des expériences numériques impactantes. 
+              Avec une solide maîtrise des technologies modernes, j’accorde une attention particulière à l’ergonomie et à la performance des interfaces. 
+              Curieux et rigoureux, j’aime relever des défis techniques et innover pour concevoir des solutions efficaces et intuitives..
               </p>
               <p>
-                My journey in web development began several years ago, and since then 
-                I've worked on a variety of projects, from simple landing pages to complex 
-                web applications. I believe in writing clean, maintainable code and staying 
-                up-to-date with the latest industry trends and best practices.
+              Mon parcours m’a permis de travailler sur divers projets, 
+              allant de simples pages vitrines à des applications web complexes.
+              Attaché aux bonnes pratiques, je privilégie un code propre et maintenable tout en restant à jour avec les dernières tendances du secteur. 
+              Toujours en quête d’amélioration, je m’efforce d’offrir des solutions à la fois esthétiques et fonctionnelles, 
+              adaptées aux besoins des utilisateurs.
               </p>
               <div className="about-cta">
                 <Link to="/contact" className="btn btn-primary">Contact Me</Link>
@@ -211,4 +219,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

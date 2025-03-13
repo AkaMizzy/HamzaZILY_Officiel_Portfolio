@@ -54,7 +54,7 @@ code {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 5rem 0; /* Reduced from 5rem to 3rem */
 }
 
 .section-title {
