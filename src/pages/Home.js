@@ -1,9 +1,8 @@
 import React, { memo, useState, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { Github, Linkedin, Instagram } from "lucide-react";
-import About from "./About";
+
 
 const TechStack = ({ tech }) => <div className="tech-stack-item">{tech}</div>;
 
@@ -23,13 +22,16 @@ const Home = () => {
     "J2EE",
   ];
   const SocialLink = memo(({ icon: Icon, link }) => (
-    <a href={link} target="_blank" rel="noopener noreferrer" className="mx-2">
-      {" "}
-      {/* Added mx-2 for spacing */}
-      <button className="group relative p-3">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
-        <div className="relative rounded-xl bg-black/50 backdrop-blur-xl p-3 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-300">
-          <Icon className="w-7 h-7 text-white group-hover:text-white transition-colors" />
+    <a 
+      href={link} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="social-link-item"
+    >
+      <button className="social-button">
+        <div className="social-button-glow"></div>
+        <div className="social-button-container">
+          <Icon />
         </div>
       </button>
     </a>
@@ -43,10 +45,12 @@ const Home = () => {
     { icon: Instagram, link: "https://www.instagram.com/mizzy.in4k/" },
   ];
   const WORDS = [
+    "un développeur Web",
+    "un développeur Full-Stack",
     "un développeur Front-End",
     "un développeur Back-End",
-    "un développeur Full-Stack",
     "un ingénieur en logiciel",
+    "un développeur Mobile",
   ];
   const TYPING_SPEED = 100;
   const ERASING_SPEED = 50;
@@ -82,7 +86,7 @@ const Home = () => {
   }, [handleTyping]);
 
   return (
-    <div>
+    <div id="home">
       {/* Hero Section */}
       <section className="hero">
         <div className="container hero-container">
@@ -113,10 +117,10 @@ const Home = () => {
             </div>
             <div className="hero-buttons">
               <Link to="/projects" className="btn btn-primary">
-                View Projects
+              Voir les projets
               </Link>
               <Link to="/contact" className="btn btn-outline">
-                Contact Me
+              Contactez-moi
               </Link>
             </div>
             <div

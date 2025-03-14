@@ -9,7 +9,7 @@ const Projects = () => {
     {
       id: 1,
       title: 'E-Commerce Website',
-      description: 'A fully responsive e-commerce platform built with React, featuring product listings, cart functionality, and secure checkout.',
+      //description: 'A fully responsive e-commerce platform built with React, featuring product listings, cart functionality, and secure checkout.',
       image: 'placeholder',
       category: 'web',
       technologies: ['React', 'Redux', 'Stripe'],
@@ -19,7 +19,7 @@ const Projects = () => {
     {
       id: 2,
       title: 'Task Management App',
-      description: 'A drag-and-drop task management application that helps users organize their projects and track progress.',
+      //description: 'A drag-and-drop task management application that helps users organize their projects and track progress.',
       image: 'placeholder',
       category: 'web',
       technologies: ['React', 'TypeScript', 'Firebase'],
@@ -29,7 +29,7 @@ const Projects = () => {
     {
       id: 3,
       title: 'Weather Dashboard',
-      description: 'A weather application that displays current and forecasted weather conditions for any location using a third-party API.',
+      //description: 'A weather application that displays current and forecasted weather conditions for any location using a third-party API.',
       image: 'placeholder',
       category: 'app',
       technologies: ['JavaScript', 'API Integration', 'CSS3'],
@@ -39,7 +39,7 @@ const Projects = () => {
     {
       id: 4,
       title: 'Portfolio Website',
-      description: 'A personal portfolio website showcasing skills, projects, and contact information with a clean, modern design.',
+      //description: 'A personal portfolio website showcasing skills, projects, and contact information with a clean, modern design.',
       image: 'placeholder',
       category: 'web',
       technologies: ['React', 'Framer Motion', 'Styled Components'],
@@ -49,7 +49,7 @@ const Projects = () => {
     {
       id: 5,
       title: 'Recipe Finder App',
-      description: 'An application that allows users to search for recipes by ingredients, dietary restrictions, and meal types.',
+      //description: 'An application that allows users to search for recipes by ingredients, dietary restrictions, and meal types.',
       image: 'placeholder',
       category: 'app',
       technologies: ['React', 'Redux', 'REST API'],
@@ -59,7 +59,7 @@ const Projects = () => {
     {
       id: 6,
       title: 'Blog Platform',
-      description: 'A full-featured blog platform with user authentication, comment system, and content management.',
+      //description: 'A full-featured blog platform with user authentication, comment system, and content management.',
       image: 'placeholder',
       category: 'web',
       technologies: ['React', 'Node.js', 'MongoDB'],
@@ -79,13 +79,13 @@ const Projects = () => {
   };
 
   return (
-    <div className="projects-page">
+    <div id="projects" className="projects-page">
       <section className="section projects-hero">
         <div className="container">
-          <h1 className="section-title">My Projects</h1>
+          <h1 className="section-title">Mes projets</h1>
           <p className="projects-subtitle">
-            A showcase of my work, ranging from web applications to UI designs.
-            Each project reflects my commitment to clean code, user experience, and problem-solving.
+          Découvrez mon parcours à travers mes projets et expertises techniques. 
+          Chaque section illustre une étape clé de mon apprentissage continu
           </p>
         </div>
       </section>
@@ -146,19 +146,8 @@ const Projects = () => {
         </div>
       </section>
 
-      <section className="section contact-cta">
-        <div className="container">
-          <div className="cta-content">
-            <h2 className="cta-title">Have a project in mind?</h2>
-            <p className="cta-description">
-              Let's collaborate to bring your ideas to life. I'm always looking for new and exciting projects.
-            </p>
-            <a href="/contact" className="btn btn-primary">Get In Touch</a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
 
-export default Projects; 
+export default Projects;

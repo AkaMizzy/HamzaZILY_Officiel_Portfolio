@@ -1,21 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
+import { techCardsItems } from "../components/constants";
+import TechCard from "../components/TechCard";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <div >
       {/* About Hero Section */}
-      <section className="section about-hero">
-        <div className="container">
-          <h1 className="section-title">About Me</h1>
+      <section className="section about-hero" >
+        <div className="container" id="about">
+          <h1 className="section-title">À propos de moi</h1>
           <div className="about-hero-content">
             <div className="about-hero-image">
               <div className="placeholder-profile">
                 <img 
                   src="/DSC_8406.png" 
                   alt="Profile"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '20px' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
                 />
               </div>
             </div>
@@ -48,111 +51,35 @@ const About = () => {
       {/* Skills Section */}
       <section className="section skills-section">
         <div className="container">
-          <h2 className="section-title">My Skills</h2>
-          <div className="skills-content">
-            <div className="skills-category">
-              <h3>Frontend Development</h3>
-              <div className="skills-grid">
-                <div className="skill-item">
-                  <span className="skill-name">HTML5</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '95%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">CSS3 / SASS</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '90%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">JavaScript (ES6+)</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '85%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">React</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '90%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">Redux</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '80%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">Responsive Design</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '95%' }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="skills-category">
-              <h3>Tools & Technologies</h3>
-              <div className="skills-grid">
-                <div className="skill-item">
-                  <span className="skill-name">Git & GitHub</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '85%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">Webpack</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '75%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">REST APIs</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '80%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">Figma / Design Tools</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '70%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">Performance Optimization</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '75%' }}></div>
-                  </div>
-                </div>
-                <div className="skill-item">
-                  <span className="skill-name">Accessibility (WCAG)</span>
-                  <div className="skill-bar">
-                    <div className="skill-level" style={{ width: '80%' }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2 className="section-title">Technologies Maîtrisées</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="skills-grid"
+          >
+            {techCardsItems.map((cardItem) => (
+              <TechCard key={cardItem.name} cardInfo={cardItem} />
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* Experience Section */}
       <section className="section experience-section">
         <div className="container">
-          <h2 className="section-title">Experience</h2>
+          <h2 className="section-title">Expérience</h2>
           <div className="timeline">
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h3>Senior Frontend Developer</h3>
-                <h4>Tech Solutions Inc.</h4>
-                <p className="timeline-date">2022 - Present</p>
+                <h3>Stagiaire Développeur Frontend</h3>
+                <h4>GLOBAL SECURE IT</h4>
+                <p className="timeline-date">Novembre 2024 - Janvier 2025</p>
                 <p className="timeline-description">
-                  Lead the frontend development of multiple web applications, 
-                  collaborating with designers and backend developers to deliver 
-                  high-quality products. Implemented modern React architecture 
-                  and optimized performance for complex user interfaces.
+                  Développement d'un site e-commerce spécialisé dans la vente de chaussures, 
+                  en appliquant les meilleures pratiques de conception et d'optimisation frontend.
                 </p>
               </div>
             </div>
@@ -160,13 +87,12 @@ const About = () => {
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h3>Frontend Developer</h3>
-                <h4>Web Innovators</h4>
-                <p className="timeline-date">2020 - 2022</p>
+                <h3>Développeur full stack Freelance</h3>
+                <h4>LETDEM</h4>
+                <p className="timeline-date">Décembre 2024 - Mars 2025</p>
                 <p className="timeline-description">
-                  Developed responsive, cross-browser compatible websites and web 
-                  applications. Worked closely with UI/UX designers to implement 
-                  pixel-perfect interfaces and improve user experience.
+                  Création d'applications web réactives et compatibles multi-navigateurs, 
+                  adaptées aux exigences spécifiques de l'entreprise.
                 </p>
               </div>
             </div>
@@ -174,19 +100,19 @@ const About = () => {
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <h3>Junior Web Developer</h3>
-                <h4>Digital Creators</h4>
-                <p className="timeline-date">2018 - 2020</p>
+                <h3>Stagiaire Développeur Mobile</h3>
+                <h4>PROGICIEL SYSTEM</h4>
+                <p className="timeline-date">Mars 2023 - Mai 2023</p>
                 <p className="timeline-description">
-                  Started my professional journey building various web projects. 
-                  Learned and implemented best practices in HTML, CSS, and JavaScript. 
-                  Collaborated in a team environment to deliver client projects.
+                  Conception et développement d'une application mobile de gestion des commandes 
+                  en utilisant Flutter, en mettant l'accent sur l'expérience utilisateur et la performance.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Education Section */}
       <section className="section education-section">
@@ -194,27 +120,47 @@ const About = () => {
           <h2 className="section-title">Education</h2>
           <div className="education-content">
             <div className="education-item">
-              <h3>Bachelor of Computer Science</h3>
-              <h4>University of Technology</h4>
-              <p className="education-date">2014 - 2018</p>
+              <h3>Licence professionnelle en Génie Logiciel</h3>
+              <h4>Ecole Supérieure en Ingénierie de l'Information, 
+                Télécommunication, Management & Génie Civil - ESTEM</h4>
+              <p className="education-date">2024 - 2025</p>
               <p className="education-description">
-                Specialized in Software Development with a focus on web technologies.
-                Completed several practical projects and internships during my studies.
+                • Études avancées en génie logiciel et développement d’applications.<br />
+                • Programmation orientée objet et conception logicielle.<br />
+                • Gestion de bases de données et optimisation des performances.<br />
               </p>
             </div>
             
             <div className="education-item">
-              <h3>Web Development Certification</h3>
-              <h4>Tech Academy</h4>
-              <p className="education-date">2019</p>
+              <h3>Technicien spécialisé en développement 
+              digital option Full-Stack</h3>
+              <h4>Institut Spécialisé de Technologie Appliquée NTIC 1 
+              Sidi Maarouf</h4>
+              <p className="education-date">2022 - 2024</p>
               <p className="education-description">
-                Intensive 6-month program focused on modern frontend development
-                technologies and frameworks, with emphasis on React ecosystem.
+                • Formation en développement web<br />
+                • Apprentissage des langages et frameworks (React, Laravel, Java EE).<br />
+                • Conception et manipulation de bases de données SQL et NoSQL.<br />
+                • Fondamentaux de l’administration système et du déploiement d’applications.
               </p>
+            </div>
+
+            <div className="education-item">
+              <h3>Économie et Gestion</h3>
+              <h4>Faculté des Sciences Juridiques, Économiques et Sociales de Casablanca</h4>
+              <p className="education-date">2021 - 2022</p>   
+            </div>
+
+            <div className="education-item">
+              <h3>Baccalauréat Sciences Physique et Chimie</h3>
+              <h4>Lycée Hassan II</h4>
+              <p className="education-date">2021 - 2022</p>
             </div>
           </div>
         </div>
       </section>
+
+
     </div>
   );
 };

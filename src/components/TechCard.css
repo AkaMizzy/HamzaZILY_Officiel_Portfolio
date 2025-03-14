@@ -1,0 +1,42 @@
+.tech-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  background-color: rgba(99, 102, 241, 0.05);
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+.tech-card-icon {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.tech-card:hover .tech-card-icon {
+  transform: scale(1.1);
+}
+
+.tech-card-icon img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.tech-card-content h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.tech-card-content p {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}

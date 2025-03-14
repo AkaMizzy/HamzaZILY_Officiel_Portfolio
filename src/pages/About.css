@@ -1,5 +1,3 @@
-
-
 /* About Hero Section */
 .about-hero {
   background-color: var(--bg-primary);
@@ -19,8 +17,7 @@
 .placeholder-profile {
   width: 100%;
   aspect-ratio: 1;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
 .about-hero-text {
@@ -70,8 +67,9 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(1, 1fr);
   gap: 1.5rem;
+  padding: 1rem;
 }
 
 .skill-item {
@@ -95,6 +93,29 @@
   height: 100%;
   background-color: var(--primary-color);
   border-radius: 4px;
+}
+
+/* Background colors for tech cards */
+.bg-figma { background-color: rgba(10, 207, 131, 0.2); }
+.bg-typescript { background-color: rgba(49, 120, 198, 0.2); }
+.bg-react { background-color: rgba(97, 218, 251, 0.2); }
+.bg-nextjs { background-color: rgba(0, 0, 0, 0.1); }
+.dark .bg-nextjs { background-color: rgba(255, 255, 255, 0.1); }
+.bg-tailwind { background-color: rgba(14, 165, 233, 0.2); }
+.bg-git { background-color: rgba(241, 80, 47, 0.2); }
+.bg-supabase { background-color: rgba(62, 207, 142, 0.2); }
+.bg-appwrite { background-color: rgba(240, 45, 101, 0.2); }
+
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* Experience Section */

@@ -1,31 +1,59 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './Navbar.css'; // We'll create this file
+import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('home');
 
-  // Toggle mobile menu
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const navItems = [
+    { id: 'home', label: 'Accueil' },
+    { id: 'about', label: 'À propos' },
+    { id: 'projects', label: 'Projets' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
-  // Close mobile menu when a link is clicked
-  const closeMenu = () => {
-    if (isOpen) {
-      setIsOpen(false);
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    const offset = 80; // Height of the navbar
+    if (element) {
+      const elementPosition = element.offsetTop;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
     }
+    setIsOpen(false);
   };
 
-  // Change navbar background on scroll
+  // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+      // Update navbar background
+      setScrolled(window.scrollY > 50);
+
+      // Update active section
+      const sections = navItems.map(item => {
+        const element = document.getElementById(item.id);
+        if (element) {
+          return {
+            id: item.id,
+            offset: element.offsetTop,
+            height: element.offsetHeight
+          };
+        }
+        return null;
+      }).filter(Boolean);
+
+      const currentPosition = window.scrollY + 100;
+
+      const currentSection = sections.find(section => 
+        currentPosition >= section.offset && 
+        currentPosition < section.offset + section.height
+      );
+
+      if (currentSection) {
+        setActiveSection(currentSection.id);
       }
     };
 
@@ -36,28 +64,26 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <span>Hamza</span>
-        </Link>
+        <div className="navbar-logo" onClick={() => scrollToSection('home')}>
+          <span>HamzaZILY</span>
+        </div>
 
         <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
           <ul className="navbar-links">
-            <li className={location.pathname === '/' ? 'active' : ''}>
-              <Link to="/" onClick={closeMenu}>Home</Link>
-            </li>
-            <li className={location.pathname === '/about' ? 'active' : ''}>
-              <Link to="/about" onClick={closeMenu}>About</Link>
-            </li>
-            <li className={location.pathname === '/projects' ? 'active' : ''}>
-              <Link to="/projects" onClick={closeMenu}>Projects</Link>
-            </li>
-            <li className={location.pathname === '/contact' ? 'active' : ''}>
-              <Link to="/contact" onClick={closeMenu}>Contact</Link>
-            </li>
+            {navItems.map((item) => (
+              <li 
+                key={item.id}
+                className={activeSection === item.id ? 'active' : ''}
+              >
+                <button onClick={() => scrollToSection(item.id)}>
+                  {item.label}
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
 
-        <div className="navbar-toggle" onClick={toggleMenu}>
+        <div className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
           <div className={`hamburger ${isOpen ? 'active' : ''}`}>
             <span></span>
             <span></span>
@@ -69,4 +95,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

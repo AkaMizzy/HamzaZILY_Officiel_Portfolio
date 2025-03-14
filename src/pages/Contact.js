@@ -1,7 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState,memo } from 'react';
 import './Contact.css';
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 const Contact = () => {
+  const SocialLink = memo(({ icon: Icon, link }) => (
+    <a 
+      href={link} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="social-link-item"
+    >
+      <button className="social-button">
+        <div className="social-button-glow"></div>
+        <div className="social-button-container">
+          <Icon />
+        </div>
+      </button>
+    </a>
+  ));
+  const SOCIAL_LINKS = [
+    { icon: Github, link: "https://github.com/AkaMizzy" },
+    {
+      icon: Linkedin,
+      link: "https://www.linkedin.com/in/hamza-zily-5a9270302/",
+    },
+    { icon: Instagram, link: "https://www.instagram.com/mizzy.in4k/" },
+  ];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,16 +60,19 @@ const Contact = () => {
     setTimeout(() => {
       setSubmitted(false);
     }, 5000);
+
   };
 
   return (
-    <div className="contact-page">
+    <div id="contact" className="contact-page">
       <section className="section contact-hero">
         <div className="container">
-          <h1 className="section-title">Get In Touch</h1>
+          <h1 className="section-title">Contactez-moi</h1>
           <p className="contact-subtitle">
-            Have a question, a project idea, or just want to say hello? Feel free to reach out!
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+          Vous avez une question, une idée de projet ou simplement envie de me dire bonjour ? 
+          N'hésitez pas à me contacter ! 
+          Je suis toujours ouvert à discuter de nouveaux projets, 
+          d'idées créatives ou d'opportunités de contribuer à votre vision.
           </p>
         </div>
       </section>
@@ -53,55 +80,56 @@ const Contact = () => {
       <section className="section contact-content">
         <div className="container contact-container">
           <div className="contact-info">
-            <h2>Contact Information</h2>
-            <p>Feel free to contact me through any of these channels. I typically respond within 24 hours.</p>
-            
+            <h2>Coordonnées</h2>
+            <p>N'hésitez pas à me contacter via l'un de ces canaux. Je vous recontacterai dès que possible.</p>
             <div className="contact-details">
               <div className="contact-item">
                 <div className="contact-item-icon">📧</div>
                 <div className="contact-item-content">
-                  <h3>Email</h3>
-                  <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+                  <h3>E-mail</h3>
+                  <p><a href="mailto:hello@example.com">hamzazily@gmail.com</a></p>
                 </div>
               </div>
               
               <div className="contact-item">
                 <div className="contact-item-icon">📱</div>
                 <div className="contact-item-content">
-                  <h3>Phone</h3>
-                  <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+                  <h3>Téléphone</h3>
+                  <p><a href="tel:+1234567890">+212 6 41 29 86 20</a></p>
                 </div>
               </div>
               
               <div className="contact-item">
                 <div className="contact-item-icon">📍</div>
                 <div className="contact-item-content">
-                  <h3>Location</h3>
-                  <p>New York, NY, United States</p>
+                  <h3>Lieu</h3>
+                  <p>Casablanca, Morocco</p>
                 </div>
               </div>
             </div>
             
-            <div className="social-links">
-              <h3>Find me on</h3>
-              <div className="social-icons">
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="social-icon">GitHub</a>
-                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="social-icon">LinkedIn</a>
-                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="social-icon">Twitter</a>
-              </div>
+            <div
+              className="hidden sm:flex gap-6 justify-start"
+              data-aos="fade-up"
+              data-aos-delay="1600"
+              style={{ marginTop: "1rem" }}
+            >
+              {SOCIAL_LINKS.map((social, index) => (
+                <SocialLink key={index} {...social} />
+              ))}
             </div>
           </div>
           
           <div className="contact-form-container">
-            <h2>Send Me a Message</h2>
+            <h2>Envoyer un message</h2>
             {submitted ? (
               <div className="success-message">
-                <p>Thank you for your message! I'll get back to you as soon as possible.</p>
+                <p>Merci pour votre message ! Je vous répondrai dans les plus brefs délais..</p>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form  action="https://formsubmit.co/hamzazily@gmail.com" method="POST" className="contact-form" >
                 <div className="form-group">
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">Nom</label>
                   <input
                     type="text"
                     id="name"
@@ -125,7 +153,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="form-group">
-                  <label htmlFor="subject">Subject</label>
+                  <label htmlFor="subject">Sujet</label>
                   <input
                     type="text"
                     id="subject"
@@ -148,7 +176,7 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 
-                <button type="submit" className="btn btn-primary submit-btn">Send Message</button>
+                <button type="submit" className="btn btn-primary submit-btn">Envoyer le message</button>
               </form>
             )}
           </div>
@@ -158,4 +186,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

@@ -11,12 +11,12 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-logo">
             <h2>Hamza</h2>
-            <p>Building digital experiences that matter.</p>
+            <p>Créer des expériences numériques qui comptent.</p>
           </div>
           
           <div className="footer-links">
             <div className="footer-links-column">
-              <h3>Quick Links</h3>
+              <h3>Liens rapides</h3>
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Hamza. All rights reserved.</p>
+          <p>&copy; {currentYear} HamzaZILY. Tous droits réservés.</p>
           <p>Made with ❤️</p>
         </div>
       </div>
