@@ -1,9 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useCallback } from 'react';
 import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const scrollToSection = useCallback((sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+
+    const offset = 80;
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    
+    window.requestAnimationFrame(() => {
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
+    });
+  }, []);
+
+  const quickLinks = [
+    { id: 'home', label: 'Accueil' },
+    { id: 'about', label: 'À propos' },
+    { id: 'projects', label: 'Projets' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
+  const socialLinks = [
+    { label: 'GitHub', url: 'https://github.com/AkaMizzy' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/hamza-zily-5a9270302/' },
+    { label: 'Instagram', url: 'https://www.instagram.com/mizzy.in4k/' }
+  ];
 
   return (
     <footer className="footer">
@@ -18,20 +45,33 @@ const Footer = () => {
             <div className="footer-links-column">
               <h3>Liens rapides</h3>
               <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/projects">Projects</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
+                {quickLinks.map(link => (
+                  <li key={link.id}>
+                    <button 
+                      onClick={() => scrollToSection(link.id)}
+                      className="footer-link-button"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
             
             <div className="footer-links-column">
               <h3>Social</h3>
               <ul>
-                <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                <li><a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                <li><a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                {socialLinks.map(link => (
+                  <li key={link.label}>
+                    <a 
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -46,4 +86,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;

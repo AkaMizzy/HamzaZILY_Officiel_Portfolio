@@ -65,6 +65,25 @@
   padding-left: 5px;
 }
 
+/* Add new styles for footer link buttons */
+.footer-link-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  transition: var(--transition);
+  text-align: left;
+  width: 100%;
+}
+
+.footer-link-button:hover {
+  color: var(--primary-color);
+  padding-left: 5px;
+}
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -91,4 +110,4 @@
     gap: 1rem;
     text-align: center;
   }
-} 
+}
