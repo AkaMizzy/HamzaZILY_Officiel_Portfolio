@@ -45,12 +45,12 @@ const Home = () => {
     { icon: Instagram, link: "https://www.instagram.com/mizzy.in4k/" },
   ];
   const WORDS = [
-    "un développeur Web",
-    "un développeur Full-Stack",
-    "un développeur Front-End",
-    "un développeur Back-End",
+    "un Développeur Web",
+    "un Développeur Full-Stack",
+    "un Développeur Front-End",
+    "un Développeur Back-End",
     "un ingénieur en logiciel",
-    "un développeur Mobile",
+    "un Développeur Mobile",
   ];
   const TYPING_SPEED = 100;
   const ERASING_SPEED = 50;
@@ -85,6 +85,18 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [handleTyping]);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    const offset = 80; // Height of the navbar
+    if (element) {
+      const elementPosition = element.offsetTop;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div id="home">
       {/* Hero Section */}
@@ -116,12 +128,12 @@ const Home = () => {
               ))}
             </div>
             <div className="hero-buttons">
-              <Link to="/projects" className="btn btn-primary">
-              Voir les projets
-              </Link>
-              <Link to="/contact" className="btn btn-outline">
-              Contactez-moi
-              </Link>
+              <button onClick={() => scrollToSection('projects')} className="btn btn-primary">
+                Voir les projets
+              </button>
+              <button onClick={() => scrollToSection('contact')} className="btn btn-outline">
+                Contactez-moi
+              </button>
             </div>
             <div
               className="hidden sm:flex gap-6 justify-start"

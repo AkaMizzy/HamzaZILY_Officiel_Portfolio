@@ -80,6 +80,15 @@ const Navbar = () => {
                 </button>
               </li>
             ))}
+            <li>
+              <a 
+                href="/src/assets/pdf/cv_hamza_zily.pdf"
+                className="btn btn-outline"
+                download
+              >
+                Télécharger CV
+              </a>
+            </li>
           </ul>
         </div>
 

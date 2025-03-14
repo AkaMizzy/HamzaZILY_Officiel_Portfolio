@@ -6,6 +6,17 @@ import TechCard from "../components/TechCard";
 import { motion } from "framer-motion";
 
 const About = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    const offset = 80; // Height of the navbar
+    if (element) {
+      const elementPosition = element.offsetTop;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <div >
       {/* About Hero Section */}
@@ -16,7 +27,7 @@ const About = () => {
             <div className="about-hero-image">
               <div className="placeholder-profile">
                 <img 
-                  src="/DSC_8406.png" 
+                  src="/DSC_8405.png" 
                   alt="Profile"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
                 />
@@ -40,8 +51,16 @@ const About = () => {
               adaptées aux besoins des utilisateurs.
               </p>
               <div className="about-cta">
-                <Link to="/contact" className="btn btn-primary">Contact Me</Link>
-                <a href="#" className="btn btn-outline">Download Resume</a>
+              <button onClick={() => scrollToSection('contact')} className="btn btn-primary">
+                Contactez-moi
+              </button>
+                <a 
+                  href="/src/assets/pdf/cv_hamza_zily.pdf" 
+                  className="btn btn-outline"
+                  download
+                >
+                  Télécharger le CV
+                </a>
               </div>
             </div>
           </div>
