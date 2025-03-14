@@ -4,6 +4,7 @@ import './About.css';
 import { techCardsItems } from "../components/constants";
 import TechCard from "../components/TechCard";
 import { motion } from "framer-motion";
+import cv from "../assets/pdf/CV_Hamza_Zily.pdf"
 
 const About = () => {
   const scrollToSection = (sectionId) => {
@@ -17,6 +18,13 @@ const About = () => {
       });
     }
   };
+  const handleDownload = (e) => {
+    e.preventDefault();
+    const link = document.createElement("a");
+    link.href = cv ; 
+    link.download = "CV_Hamza_Zily.pdf";
+    link.click();
+};
   return (
     <div >
       {/* About Hero Section */}
@@ -54,13 +62,12 @@ const About = () => {
               <button onClick={() => scrollToSection('contact')} className="btn btn-primary">
                 Contactez-moi
               </button>
-                <a 
-                  href="/cv_hamza_zily.pdf" 
+                <button 
                   className="btn btn-outline"
-                  download
+                  onClick={handleDownload}
                 >
                   Télécharger le CV
-                </a>
+                </button>
               </div>
             </div>
           </div>

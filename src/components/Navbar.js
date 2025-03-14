@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import cv from "../assets/pdf/CV_Hamza_Zily.pdf"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +61,13 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  const handleDownload = (e) => {
+      e.preventDefault();
+      const link = document.createElement("a");
+      link.href = cv ; 
+      link.download = "CV_Hamza_Zily.pdf";
+      link.click();
+  };
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -81,13 +89,12 @@ const Navbar = () => {
               </li>
             ))}
             <li>
-              <a 
-                href="/cv_hamza_zily.pdf"
-                className="btn btn-outline"
-                download
-              >
-                Télécharger CV
-              </a>
+            <button 
+                  className="btn btn-outline"
+                  onClick={handleDownload}
+                >
+                  Télécharger le CV
+                </button>
             </li>
           </ul>
         </div>

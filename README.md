@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# 💼 Portfolio - Hamza ZILY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About The Project
 
-## Available Scripts
+My professional portfolio website built with React, showcasing my projects, skills, and experience as a Full Stack Developer.
 
-In the project directory, you can run:
+### Features
 
-### `npm start`
+- 📱 Responsive design
+- 🎯 Single Page Application
+- 🌓 Modern UI/UX
+- ⚡ Smooth scroll navigation
+- 💫 Framer Motion animations
+- 📊 Project showcase
+- 📝 Contact form integration
+- 🔧 Skills & technologies display
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Built With
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React.js
+- Framer Motion
+- CSS3
+- Lucide React Icons
+- React Router
+- FormSubmit
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run this project locally:
 
-### `npm run build`
+```bash
+# Clone the repository
+git clone https://github.com/AkaMizzy/My_Officiel_Portfolio.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Navigate to the project directory
+cd My_Officiel_Portfolio
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Install dependencies
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Start the development server
+npm start
+```
 
-### `npm run eject`
+## Website Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Home: Introduction and quick overview
+- About: Detailed background and skills
+- Projects: Portfolio of my work
+- Contact: Get in touch form
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Highlights
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 🏢 LETDEM Laboratory Website
+- 🍳 Wasafati Recipe Platform
+- 📚 Student Management System
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Author
 
-## Learn More
+**Hamza ZILY**
+- GitHub: [@AkaMizzy](https://github.com/AkaMizzy)
+- LinkedIn: [Hamza ZILY](https://www.linkedin.com/in/hamza-zily-5a9270302/)
+- Portfolio: [hamzazily-officiel-portfolio.vercel.app](https://hamzazily-officiel-portfolio.vercel.app/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions are welcome! Feel free to open an issue or submit a pull request.
 
-### Code Splitting
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
+Distributed under the MIT License. See `LICENSE` for more information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contact
 
-### Making a Progressive Web App
+Hamza ZILY - [Portfolio](https://hamzazily-officiel-portfolio.vercel.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Project Link: [https://github.com/AkaMizzy/My_Officiel_Portfolio](https://github.com/AkaMizzy/My_Officiel_Portfolio)
 
-### Advanced Configuration
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [React.js](https://reactjs.org/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Lucide React](https://lucide.dev/)
+- [FormSubmit](https://formsubmit.co/)
