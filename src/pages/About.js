@@ -55,7 +55,7 @@ const About = () => {
                 Contactez-moi
               </button>
                 <a 
-                  href="/src/assets/pdf/cv_hamza_zily.pdf" 
+                  href="/cv_hamza_zily.pdf" 
                   className="btn btn-outline"
                   download
                 >

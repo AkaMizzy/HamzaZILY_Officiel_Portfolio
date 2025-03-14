@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Projects.css';
-
+import wasafati from '../assets/websiteImages/wasafati.png';
+import letdem from '../assets/websiteImages/letdem.png';
+import stu from '../assets/websiteImages/student_management.png';
 const Projects = () => {
   const [filter, setFilter] = useState('all');
 
@@ -8,63 +10,33 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Website',
-      //description: 'A fully responsive e-commerce platform built with React, featuring product listings, cart functionality, and secure checkout.',
-      image: 'placeholder',
+      title: 'LETDEM',
+      description: 'Un site web dédié à la présentation d’un laboratoire, mettant en avant ses membres, ses événements, ses productions scientifiques, ses travaux doctoraux et sa galerie multimédia.',
+      image: letdem,
       category: 'web',
-      technologies: ['React', 'Redux', 'Stripe'],
-      demoLink: '#',
+      technologies: ['React', 'Laravel', 'REST API','MySQL'],
+      demoLink: 'https://labo-letdem.com/',
       codeLink: '#',
     },
     {
       id: 2,
-      title: 'Task Management App',
-      //description: 'A drag-and-drop task management application that helps users organize their projects and track progress.',
-      image: 'placeholder',
+      title: 'Wasafati',
+      description: 'Wasafati est le guide ultime de la cuisine marocaine authentique. Il a été conçu avec la passion de partager avec le monde entier les recettes et les techniques de cuisine marocaines traditionnelles.',
+      image: wasafati,
       category: 'web',
-      technologies: ['React', 'TypeScript', 'Firebase'],
-      demoLink: '#',
-      codeLink: '#',
+      technologies: ['HTML', 'CSS', 'Bootstrap','Font Awesome','Google Fonts'],
+      demoLink: 'https://wasafati.vercel.app/',
+      codeLink: 'https://github.com/AkaMizzy/Wasafati',
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      //description: 'A weather application that displays current and forecasted weather conditions for any location using a third-party API.',
-      image: 'placeholder',
+      title: 'Student management',
+      description: "Un système de gestion des étudiants basé sur Java Swing pour les établissements d'enseignement qui gère les dossiers des étudiants, les notes et le suivi de l'assiduité.",
+      image: stu,
       category: 'app',
-      technologies: ['JavaScript', 'API Integration', 'CSS3'],
+      technologies: ['Java', 'Java Swing', 'JDBC','MySQL'],
       demoLink: '#',
-      codeLink: '#',
-    },
-    {
-      id: 4,
-      title: 'Portfolio Website',
-      //description: 'A personal portfolio website showcasing skills, projects, and contact information with a clean, modern design.',
-      image: 'placeholder',
-      category: 'web',
-      technologies: ['React', 'Framer Motion', 'Styled Components'],
-      demoLink: '#',
-      codeLink: '#',
-    },
-    {
-      id: 5,
-      title: 'Recipe Finder App',
-      //description: 'An application that allows users to search for recipes by ingredients, dietary restrictions, and meal types.',
-      image: 'placeholder',
-      category: 'app',
-      technologies: ['React', 'Redux', 'REST API'],
-      demoLink: '#',
-      codeLink: '#',
-    },
-    {
-      id: 6,
-      title: 'Blog Platform',
-      //description: 'A full-featured blog platform with user authentication, comment system, and content management.',
-      image: 'placeholder',
-      category: 'web',
-      technologies: ['React', 'Node.js', 'MongoDB'],
-      demoLink: '#',
-      codeLink: '#',
+      codeLink: 'https://github.com/AkaMizzy/student_management',
     },
   ];
 
@@ -121,7 +93,15 @@ const Projects = () => {
             {filteredProjects.map(project => (
               <div className="project-card" key={project.id}>
                 <div className="project-image">
-                  <div className="placeholder-project"></div>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </div>
                 <div className="project-content">
                   <h3 className="project-title">{project.title}</h3>
