@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
-import { techCardsItems } from "../components/constants";
+import { techCardsItems, techCategories } from "../components/constants";
 import TechCard from "../components/TechCard";
 import { motion } from "framer-motion";
 import cv from "../assets/pdf/CV_Hamza_Zily.pdf"
@@ -48,14 +48,14 @@ const About = () => {
               Passionné par le développement web et spécialisé en génie logiciel, 
               je combine expertise en frontend, 
               backend et conception de logiciels pour créer des expériences numériques impactantes. 
-              Avec une solide maîtrise des technologies modernes, j’accorde une attention particulière à l’ergonomie et à la performance des interfaces. 
-              Curieux et rigoureux, j’aime relever des défis techniques et innover pour concevoir des solutions efficaces et intuitives..
+              Avec une solide maîtrise des technologies modernes, j'accorde une attention particulière à l'ergonomie et à la performance des interfaces. 
+              Curieux et rigoureux, j'aime relever des défis techniques et innover pour concevoir des solutions efficaces et intuitives..
               </p>
               <p>
-              Mon parcours m’a permis de travailler sur divers projets, 
+              Mon parcours m'a permis de travailler sur divers projets, 
               allant de simples pages vitrines à des applications web complexes.
               Attaché aux bonnes pratiques, je privilégie un code propre et maintenable tout en restant à jour avec les dernières tendances du secteur. 
-              Toujours en quête d’amélioration, je m’efforce d’offrir des solutions à la fois esthétiques et fonctionnelles, 
+              Toujours en quête d'amélioration, je m'efforce d'offrir des solutions à la fois esthétiques et fonctionnelles, 
               adaptées aux besoins des utilisateurs.
               </p>
               <div className="about-cta">
@@ -78,17 +78,102 @@ const About = () => {
       <section className="section skills-section">
         <div className="container">
           <h2 className="section-title">Technologies Maîtrisées</h2>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="skills-grid"
-          >
-            {techCardsItems.map((cardItem) => (
-              <TechCard key={cardItem.name} cardInfo={cardItem} />
-            ))}
-          </motion.div>
+          
+          {/* Frontend Technologies */}
+          <div className="tech-category-section">
+            <motion.h3 
+              className="tech-category-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Frontend
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="skills-grid"
+            >
+              {techCategories.frontend.map((cardItem) => (
+                <TechCard key={cardItem.name} cardInfo={cardItem} />
+              ))}
+            </motion.div>
+          </div>
+          
+          {/* Backend Technologies */}
+          <div className="tech-category-section">
+            <motion.h3 
+              className="tech-category-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Backend
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="skills-grid"
+            >
+              {techCategories.backend.map((cardItem) => (
+                <TechCard key={cardItem.name} cardInfo={cardItem} />
+              ))}
+            </motion.div>
+          </div>
+          
+          {/* Database Technologies */}
+          <div className="tech-category-section">
+            <motion.h3 
+              className="tech-category-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Base de Données
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="skills-grid"
+            >
+              {techCategories.database.map((cardItem) => (
+                <TechCard key={cardItem.name} cardInfo={cardItem} />
+              ))}
+            </motion.div>
+          </div>
+          
+          {/* Other Technologies */}
+          <div className="tech-category-section">
+            <motion.h3 
+              className="tech-category-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Autres
+            </motion.h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="skills-grid"
+            >
+              {techCategories.other.map((cardItem) => (
+                <TechCard key={cardItem.name} cardInfo={cardItem} />
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -151,7 +236,7 @@ const About = () => {
                 Télécommunication, Management & Génie Civil - ESTEM</h4>
               <p className="education-date">2024 - 2025</p>
               <p className="education-description">
-                • Études avancées en génie logiciel et développement d’applications.<br />
+                • Études avancées en génie logiciel et développement d'applications.<br />
                 • Programmation orientée objet et conception logicielle.<br />
                 • Gestion de bases de données et optimisation des performances.<br />
               </p>
@@ -167,7 +252,7 @@ const About = () => {
                 • Formation en développement web<br />
                 • Apprentissage des langages et frameworks (React, Laravel, Java EE).<br />
                 • Conception et manipulation de bases de données SQL et NoSQL.<br />
-                • Fondamentaux de l’administration système et du déploiement d’applications.
+                • Fondamentaux de l'administration système et du déploiement d'applications.
               </p>
             </div>
 

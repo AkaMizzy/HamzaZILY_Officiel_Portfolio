@@ -259,11 +259,16 @@
 }
 
 @media screen and (max-width: 640px) {
-  .tech-stack-container > div {
-    display: none;
+  .tech-stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
   }
-  .tech-stack-container > div:nth-child(-n+6) {
-    display: block;
+  
+  .tech-stack-container > div {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 }
 

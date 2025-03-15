@@ -1,6 +1,7 @@
-import React, { useState,memo } from 'react';
+import React, { useState, memo, useRef } from 'react';
 import './Contact.css';
 import { Github, Linkedin, Instagram } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const SocialLink = memo(({ icon: Icon, link }) => (
@@ -34,6 +35,8 @@ const Contact = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const form = useRef();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,22 +48,35 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real application, you would send the form data to a server here
-    console.log(formData);
-    // Show success message
-    setSubmitted(true);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
-    // Reset submitted state after 5 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 5000);
-
+    setLoading(true);
+    
+    emailjs.sendForm(
+      'service_xpqw1gh', // Replace with your EmailJS service ID
+      'template_6ml0gvk', // Replace with your EmailJS template ID
+      form.current,
+      'aChRyR_-K06tpP-Ou' // Replace with your EmailJS public key
+    )
+      .then((result) => {
+        console.log('Email sent successfully!', result.text);
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error.text);
+        alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+      })
+      .finally(() => {
+        setLoading(false);
+        // Reset submitted state after 5 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+      });
   };
 
   return (
@@ -87,7 +103,7 @@ const Contact = () => {
                 <div className="contact-item-icon">📧</div>
                 <div className="contact-item-content">
                   <h3>E-mail</h3>
-                  <p><a href="mailto:hello@example.com">hamzazily@gmail.com</a></p>
+                  <p><a href="mailto:hamzazily@gmail.com">hamzazily@gmail.com</a></p>
                 </div>
               </div>
               
@@ -95,7 +111,7 @@ const Contact = () => {
                 <div className="contact-item-icon">📱</div>
                 <div className="contact-item-content">
                   <h3>Téléphone</h3>
-                  <p><a href="tel:+1234567890">+212 6 41 29 86 20</a></p>
+                  <p><a href="tel:+212641298620">+212 6 41 29 86 20</a></p>
                 </div>
               </div>
               
@@ -124,10 +140,10 @@ const Contact = () => {
             <h2>Envoyer un message</h2>
             {submitted ? (
               <div className="success-message">
-                <p>Merci pour votre message ! Je vous répondrai dans les plus brefs délais..</p>
+                <p>Merci pour votre message ! Je vous répondrai dans les plus brefs délais.</p>
               </div>
             ) : (
-              <form  action="https://formsubmit.co/hamzazily@gmail.com" method="POST" className="contact-form" >
+              <form ref={form} onSubmit={handleSubmit} className="contact-form">
                 <div className="form-group">
                   <label htmlFor="name">Nom</label>
                   <input
@@ -176,7 +192,13 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 
-                <button type="submit" className="btn btn-primary submit-btn">Envoyer le message</button>
+                <button 
+                  type="submit" 
+                  className="btn btn-primary submit-btn"
+                  disabled={loading}
+                >
+                  {loading ? 'Envoi en cours...' : 'Envoyer le message'}
+                </button>
               </form>
             )}
           </div>

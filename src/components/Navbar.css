@@ -6,6 +6,7 @@
   padding: 1.5rem 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent; /* Prevent tap highlight on iOS */
 }
 
 .navbar.scrolled {
@@ -25,18 +26,21 @@
   font-weight: 700;
   color: var(--primary-color);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Prevent tap highlight on iOS */
 }
 
 .navbar-links {
   display: flex;
   list-style: none;
-  align-items: center; /* Add this to align items vertically */
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-links li {
   margin-left: 2rem;
-  display: flex; /* Add this */
-  align-items: center; /* Add this */
+  display: flex;
+  align-items: center;
 }
 
 .navbar-links li a {
@@ -68,9 +72,12 @@
   font-size: inherit;
   padding: 0;
   font-family: inherit;
-  display: flex; /* Add this */
-  align-items: center; /* Add this */
-  height: 100%; /* Add this */
+  display: flex;
+  align-items: center;
+  height: 100%;
+  -webkit-appearance: none; /* Fix for iOS */
+  -webkit-tap-highlight-color: transparent; /* Prevent tap highlight on iOS */
+  touch-action: manipulation; /* Improve touch behavior */
 }
 
 .navbar-links button:hover {
@@ -80,6 +87,9 @@
 .navbar-toggle {
   display: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Prevent tap highlight on iOS */
+  touch-action: manipulation; /* Improve touch behavior */
+  padding: 10px; /* Increase touch target size */
 }
 
 .hamburger {
@@ -96,6 +106,8 @@
   height: 2px;
   background-color: var(--text-primary);
   transition: all 0.3s ease;
+  transform-origin: center; /* Improve transform on Safari */
+  will-change: transform, opacity; /* Optimize for animations */
 }
 
 .hamburger.active span:nth-child(1) {
@@ -115,9 +127,10 @@
   padding: 0.5rem 1rem;
   margin-left: 1rem;
   font-size: 0.9rem;
-  display: flex; /* Add this */
-  align-items: center; /* Add this */
-  height: fit-content; /* Add this */
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  -webkit-appearance: none; /* Fix for iOS */
 }
 
 .navbar-links .btn-outline {
@@ -149,6 +162,8 @@
     padding: 5rem 2rem;
     transition: all 0.3s ease;
     z-index: 999;
+    overflow-y: auto; /* Enable scrolling if needed */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   }
 
   .navbar-menu.active {
@@ -162,15 +177,20 @@
 
   .navbar-links li {
     margin: 1rem 0;
+    width: 100%;
   }
 
-  .navbar-links li a {
+  .navbar-links li button {
     font-size: 1.2rem;
+    width: 100%;
+    padding: 10px 0; /* Increase touch target size */
+    justify-content: flex-start;
   }
 
   .navbar-links .btn {
     margin: 1rem 0;
     width: 100%;
     text-align: center;
+    justify-content: center;
   }
 }

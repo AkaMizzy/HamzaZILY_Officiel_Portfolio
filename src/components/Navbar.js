@@ -14,16 +14,20 @@ const Navbar = () => {
     { id: 'contact', label: 'Contact' }
   ];
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId, event) => {
+    // Prevent default behavior to avoid any browser-specific issues
+    if (event) event.preventDefault();
+    
     const element = document.getElementById(sectionId);
     const offset = 80; // Height of the navbar
     if (element) {
-      const elementPosition = element.offsetTop;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: elementPosition - offset,
         behavior: 'smooth'
       });
     }
+    // Close menu after navigation
     setIsOpen(false);
   };
 
@@ -69,10 +73,24 @@ const Navbar = () => {
       link.click();
   };
 
+  // Add touchstart event for mobile devices, especially Safari
+  const toggleMenu = (e) => {
+    e.preventDefault(); // Prevent default behavior
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <div className="navbar-logo" onClick={() => scrollToSection('home')}>
+        <div 
+          className="navbar-logo" 
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('home', e);
+          }}
+          role="button"
+          tabIndex={0}
+        >
           <span>HamzaZILY</span>
         </div>
 
@@ -83,23 +101,37 @@ const Navbar = () => {
                 key={item.id}
                 className={activeSection === item.id ? 'active' : ''}
               >
-                <button onClick={() => scrollToSection(item.id)}>
+                <button 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.id, e);
+                  }}
+                  type="button"
+                >
                   {item.label}
                 </button>
               </li>
             ))}
             <li>
-            <button 
-                  className="btn btn-outline"
-                  onClick={handleDownload}
-                >
-                  Télécharger le CV
-                </button>
+              <button 
+                className="btn btn-outline"
+                onClick={handleDownload}
+                type="button"
+              >
+                Télécharger le CV
+              </button>
             </li>
           </ul>
         </div>
 
-        <div className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
+        <div 
+          className="navbar-toggle" 
+          onClick={toggleMenu}
+          onTouchStart={toggleMenu} // Add touch event for better mobile response
+          role="button"
+          tabIndex={0}
+          aria-label="Toggle menu"
+        >
           <div className={`hamburger ${isOpen ? 'active' : ''}`}>
             <span></span>
             <span></span>
