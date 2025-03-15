@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import cv from "../assets/pdf/CV_Hamza_Zily.pdf"
 
@@ -14,88 +14,54 @@ const Navbar = () => {
     { id: 'contact', label: 'Contact' }
   ];
 
-  // Improved scroll handling for Safari
-  const scrollToSection = useCallback((sectionId) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
-    if (!element) return;
-
-    // Close menu first to prevent iOS issues
-    setIsOpen(false);
-
-    // Small delay to ensure menu is closed
-    setTimeout(() => {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      
-      // Use requestAnimationFrame for smoother scrolling
-      window.requestAnimationFrame(() => {
-        window.scrollTo({
-          top: elementPosition - offset,
-          behavior: 'smooth'
-        });
+    const offset = 80; // Height of the navbar
+    if (element) {
+      const elementPosition = element.offsetTop;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
       });
-    }, 10);
-  }, []);
-
-  // Improved menu toggle for iOS
-  const toggleMenu = useCallback(() => {
-    // Prevent scroll when menu is open
-    if (!isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'visible';
     }
-    setIsOpen(!isOpen);
-  }, [isOpen]);
+    setIsOpen(false);
+  };
 
-  // Cleanup on unmount
+  // Update active section based on scroll position
   useEffect(() => {
-    return () => {
-      document.body.style.overflow = 'visible';
-    };
-  }, []);
-
-  // Update scroll handler with improved performance
-  useEffect(() => {
-    let ticking = false;
-    
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.pageYOffset > 50);
-          
-          const sections = navItems.map(item => {
-            const element = document.getElementById(item.id);
-            if (element) {
-              return {
-                id: item.id,
-                offset: element.offsetTop,
-                height: element.offsetHeight
-              };
-            }
-            return null;
-          }).filter(Boolean);
+      // Update navbar background
+      setScrolled(window.scrollY > 50);
 
-          const currentPosition = window.pageYOffset + 100;
-          const currentSection = sections.find(section => 
-            currentPosition >= section.offset && 
-            currentPosition < section.offset + section.height
-          );
+      // Update active section
+      const sections = navItems.map(item => {
+        const element = document.getElementById(item.id);
+        if (element) {
+          return {
+            id: item.id,
+            offset: element.offsetTop,
+            height: element.offsetHeight
+          };
+        }
+        return null;
+      }).filter(Boolean);
 
-          if (currentSection) {
-            setActiveSection(currentSection.id);
-          }
-          
-          ticking = false;
-        });
-        ticking = true;
+      const currentPosition = window.scrollY + 100;
+
+      const currentSection = sections.find(section => 
+        currentPosition >= section.offset && 
+        currentPosition < section.offset + section.height
+      );
+
+      if (currentSection) {
+        setActiveSection(currentSection.id);
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [navItems]);
-   const handleDownload = (e) => {
+  }, []);
+  const handleDownload = (e) => {
       e.preventDefault();
       const link = document.createElement("a");
       link.href = cv ; 
@@ -117,11 +83,7 @@ const Navbar = () => {
                 key={item.id}
                 className={activeSection === item.id ? 'active' : ''}
               >
-                <button 
-                  onClick={() => scrollToSection(item.id)}
-                  role="link"
-                  aria-label={`Scroll to ${item.label}`}
-                >
+                <button onClick={() => scrollToSection(item.id)}>
                   {item.label}
                 </button>
               </li>
@@ -137,18 +99,13 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <button 
-          className="navbar-toggle" 
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
+        <div className="navbar-toggle" onClick={() => setIsOpen(!isOpen)}>
           <div className={`hamburger ${isOpen ? 'active' : ''}`}>
             <span></span>
             <span></span>
             <span></span>
           </div>
-        </button>
+        </div>
       </div>
     </nav>
   );
