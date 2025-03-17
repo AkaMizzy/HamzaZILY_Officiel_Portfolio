@@ -265,7 +265,7 @@ const About = () => {
             <div className="education-item">
               <h3>Baccalauréat Sciences Physique et Chimie</h3>
               <h4>Lycée Hassan II</h4>
-              <p className="education-date">2021 - 2022</p>
+              <p className="education-date">2020 - 2021</p>
             </div>
           </div>
         </div>
