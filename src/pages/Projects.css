@@ -61,6 +61,9 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card:hover {
@@ -92,6 +95,9 @@
 
 .project-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .project-title {
@@ -124,6 +130,8 @@
 .project-links {
   display: flex;
   gap: 1.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .project-link {

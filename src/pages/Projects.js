@@ -3,6 +3,7 @@ import './Projects.css';
 import wasafati from '../assets/websiteImages/wasafati.png';
 import letdem from '../assets/websiteImages/letdem.png';
 import stu from '../assets/websiteImages/student_management.png';
+import weather from '../assets/websiteImages/skysync.png';
 const Projects = () => {
   const [filter, setFilter] = useState('all');
 
@@ -10,11 +11,11 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'LETDEM',
-      description: 'Un site web dédié à la présentation d’un laboratoire, mettant en avant ses membres, ses événements, ses productions scientifiques, ses travaux doctoraux et sa galerie multimédia.',
+      title: 'Letdem',
+      description: "Une application web dédié à la présentation d’un laboratoire, mettant en avant ses membres, ses événements, ses productions scientifiques, ses travaux doctoraux et sa galerie multimédia. Cette plateforme sert également d'outil de communication pour annoncer les futurs événements et collaborations.",
       image: letdem,
       category: 'web',
-      technologies: ['React', 'Laravel', 'REST API','MySQL'],
+      technologies: ['React','Axios', 'Laravel', 'REST API','MySQL'],
       demoLink: 'https://labo-letdem.com/',
       codeLink: '#',
     },
@@ -30,7 +31,17 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Student management',
+      title: 'SkySync | Weather App',
+      description: "SkySync est une application météo élégante et interactive développée avec React, offrant des mises à jour en temps réel, des animations dynamiques et un design moderne. Les utilisateurs peuvent rechercher une ville et consulter la prévision sur 5 jours.",
+      image: weather,
+      category: 'web',
+      technologies: ['React', 'CSS/SASS', 'OpenWeatherMap API', 'Framer Motion','React Icons'],
+      demoLink: 'https://skysync-weatherapp.vercel.app/',
+      codeLink: 'https://github.com/AkaMizzy/SkySync-weather_app',
+    },
+    {
+      id: 4,
+      title: 'Student Management',
       description: "Un système de gestion des étudiants basé sur Java Swing pour les établissements d'enseignement qui gère les dossiers des étudiants, les notes et le suivi de l'assiduité.",
       image: stu,
       category: 'app',
