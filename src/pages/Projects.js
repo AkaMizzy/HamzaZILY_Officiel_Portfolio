@@ -12,7 +12,7 @@ const Projects = () => {
     {
       id: 1,
       title: 'Letdem',
-      description: "Une application web dédié à la présentation d’un laboratoire, mettant en avant ses membres, ses événements, ses productions scientifiques, ses travaux doctoraux et sa galerie multimédia. Cette plateforme sert également d'outil de communication pour annoncer les futurs événements et collaborations.",
+      description: "Une application web dédié à la présentation d'un laboratoire, mettant en avant ses membres, ses événements, ses productions scientifiques, ses travaux doctoraux et sa galerie multimédia. Cette plateforme sert également d'outil de communication pour annoncer les futurs événements et collaborations.",
       image: letdem,
       category: 'web',
       technologies: ['React','Axios', 'Laravel', 'REST API','MySQL'],
@@ -123,12 +123,16 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="project-links">
-                    <a href={project.demoLink} className="project-link" target="_blank" rel="noopener noreferrer">
-                      View Project
-                    </a>
-                    <a href={project.codeLink} className="project-link" target="_blank" rel="noopener noreferrer">
-                      Source Code
-                    </a>
+                    {project.demoLink && project.demoLink !== '#' && (
+                      <a href={project.demoLink} className="project-link" target="_blank" rel="noopener noreferrer">
+                        View Project
+                      </a>
+                    )}
+                    {project.codeLink && project.codeLink !== '#' && (
+                      <a href={project.codeLink} className="project-link" target="_blank" rel="noopener noreferrer">
+                        Source Code
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
