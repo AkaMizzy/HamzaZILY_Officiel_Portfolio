@@ -138,6 +138,13 @@ const databaseTech = [
     bgColor: "bg-[#00684A]/20",
     category: "Database"
   },
+  {
+    name: "PL/SQL", 
+    description: "Langage de programmation pour Oracle",
+    imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg",
+    bgColor: "bg-[#00684A]/20",
+    category: "Database"
+  },
 ];
 
 // Other technologies
