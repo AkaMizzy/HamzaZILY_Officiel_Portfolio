@@ -33,6 +33,13 @@ const frontendTech = [
     category: "Frontend"
   },
   {
+    name: "JavaScript", 
+    description: "Langage de programmation",
+    imageUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    bgColor: "bg-[#F0DB4F]/20",
+    category: "Frontend"
+  },
+  {
     name: "Tailwind", 
     description: "Framework CSS utilitaire",
     imageUrl: tailwindlogo,
