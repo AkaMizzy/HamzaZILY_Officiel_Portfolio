@@ -35,7 +35,7 @@ const About = () => {
             <div className="about-hero-image">
               <div className="placeholder-profile">
                 <img 
-                  src="/DSC_8405.png" 
+                  src="/me.jpg" 
                   alt="Profile"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
                 />
